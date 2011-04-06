@@ -231,21 +231,10 @@
 	
 	[[UIApplication sharedApplication] setStatusBarStyle:_oldStatusBarSyle animated:YES];
 	
-	if(!_oldToolBarHidden) {
-		
-		if ([self.navigationController isToolbarHidden]) {
-			[self.navigationController setToolbarHidden:NO animated:YES];
-		}
-		
-		self.navigationController.toolbar.barStyle = _oldNavBarStyle;
-		self.navigationController.toolbar.tintColor = _oldNavBarTintColor;
-		self.navigationController.toolbar.translucent = _oldNavBarTranslucent;
-		
-	} else {
-		
-		[self.navigationController setToolbarHidden:_oldToolBarHidden animated:YES];
-		
-	}
+    self.navigationController.toolbar.barStyle = _oldToolBarStyle;
+    self.navigationController.toolbar.tintColor = _oldToolBarTintColor;
+    self.navigationController.toolbar.translucent = _oldToolBarTranslucent;
+    [self.navigationController setToolbarHidden:_oldToolBarHidden animated:YES];
 	
 	if (_popover) {
 		[self removeObserver:self forKeyPath:@"contentSizeForViewInPopover"];
